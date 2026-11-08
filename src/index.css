@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #0b0f19;
+  --bg-secondary: #111827;
+  --bg-tertiary: #1f2937;
+  --bg-card: rgba(17, 24, 39, 0.85);
+  --bg-card-hover: rgba(31, 41, 55, 0.95);
+  --border-color: #374151;
+  --border-light: #4b5563;
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  --accent-cyan: #06b6d4;
+  --accent-blue: #3b82f6;
+  --accent-green: #10b981;
+  --accent-amber: #f59e0b;
+  --accent-rose: #f43f5e;
+  --accent-purple: #8b5cf6;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  user-select: none;
+}
+
+code, pre, .font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-light);
+}
+
+/* Glass panel */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+}
+
+/* Pulsing cascade animation */
+@keyframes failure-pulse {
+  0% {
+    r: 14;
+    opacity: 0.9;
+    stroke-width: 3;
+  }
+  50% {
+    r: 28;
+    opacity: 0.3;
+    stroke-width: 6;
+  }
+  100% {
+    r: 14;
+    opacity: 0.9;
+    stroke-width: 3;
+  }
+}
+
+.failing-pulse-ring {
+  animation: failure-pulse 1.4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* Custom tooltips */
+.map-tooltip {
+  pointer-events: none;
+  position: absolute;
+  z-index: 100;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid #475569;
+  border-radius: 6px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  font-size: 11px;
+  line-height: 1.4;
+  padding: 8px 12px;
+  max-width: 260px;
+}
